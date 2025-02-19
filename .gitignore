@@ -1,1 +1,4 @@
 .venv/
+
+# Ignore all files starting with .lgd-
+.lgd-*
