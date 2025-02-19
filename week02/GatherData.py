@@ -41,10 +41,9 @@ finally:
 
     directories = [entry for entry in entries if os.path.isdir(os.path.join(path, entry))]
 
-    timestamp_str = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 
     # Create the new directory path
-    new_path_dir = f"{path}/run-{len(directories)}_{timestamp_str}/"
+    new_path_dir = f"{path}/run-{len(directories)}/"
     os.mkdir(new_path_dir)
 
     # Convert state to integer
@@ -76,6 +75,6 @@ finally:
 
 
     # Save data and clean up
-    df.to_csv(f"{new_path_dir}/{datetime.now()}.csv", index=False)
+    df.to_csv(f"{new_path_dir}/button_data.csv", index=False)
     GPIO.cleanup()
     print("GPIO cleaned up. Goodbye!")
