@@ -47,7 +47,7 @@ try:
                     GPIO.output(leds[blue_button_state_in_cycle], GPIO.HIGH)
                     blue_button_state_in_cycle += 1
             if current_state_blue == GPIO.HIGH: #Button released
-
+                pass
             previous_state_blue = current_state_blue
 
 
