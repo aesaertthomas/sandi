@@ -37,16 +37,15 @@ finally:
 
     path = "gather-sensor-data/"
 
-    #I have added this because I find it clearer when multiple dirs in gather-sensor-data dir
     entries = os.listdir(path)
 
-    # Filter out directories
     directories = [entry for entry in entries if os.path.isdir(os.path.join(path, entry))]
 
-    # Return the count of directories
-    new_path_dir = f"{path}/run-{len(directories)}/"
-    os.mkdir(new_path_dir)
+    timestamp_str = datetime.now().strftime('%Y-%m-%d_%H-%M-%S')
 
+    # Create the new directory path
+    new_path_dir = f"{path}/run-{len(directories)}_{timestamp_str}/"
+    os.mkdir(new_path_dir)
 
     # Convert state to integer
     df['state'] = df['state'].astype(int)
